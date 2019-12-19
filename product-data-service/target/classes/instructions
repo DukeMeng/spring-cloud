@@ -1,0 +1,5 @@
+数据微服务:
+
+jar:
+    spring-cloud-starter-netflix-eureka-client 表示这是个 eureka 客户端。
+    spring-boot-starter-web: 表示这是个web服务，会提供控制层

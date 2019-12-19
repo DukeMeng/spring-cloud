@@ -1,0 +1,25 @@
+视图微服务:
+
+Feign 是什么呢？ Feign 是对 Ribbon的封装，调用起来更简单。。。
+
+
+jar：
+    spring-cloud-starter-openfeign 支持 Feign 方式
+    spring-cloud-starter-config 用于访问配置服务器
+    spring-boot-starter-actuator 用于访问路径：/actuator/bus-refresh
+    spring-cloud-starter-bus-amqp 用于支持 rabbitmq
+    spring-cloud-starter-netflix-hystrix 以支持断路器
+Feign 客户端:
+    通过 注解方式 访问 访问PRODUCT-DATA-SERVICE服务的 products路径，
+    product-data-service 既不是域名也不是ip地址，而是 数据服务在 eureka 注册中心的名称。
+
+启动类：
+    @EnableFeignClients： 表示用于使用 Feign 方式
+
+
+新建bootstrap.yml：  配置 config-server 的信息
+bootstrap.yml 里配置提供了 serviceId: config-server, 这个是配置服务器在 eureka server 里的服务名称，这样就可以定位 config-server
+bootstrap.yml 和 application.yml 的区别，简单说就是前者先启动，并且一些系统方面的配置需要在 bootstrap.yml 里进行配置。
+
+
+视图服务支持 rabbitMQ, 那么在默认情况下，它的信息就不会进入 Zipkin了。
