@@ -1,0 +1,7 @@
+EurekaServer：注册中心，用于注册各种微服务，以便于其他微服务找到和访问
+详情看application.yml文件
+
+启动类：
+
+    @SpringBootApplication： EurekaServer 本身就是个 Springboot 微服务
+    @EnableEurekaServer： 表示这是个 EurekaServer

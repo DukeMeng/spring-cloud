@@ -1,10 +1,16 @@
 eureka:
   instance:
+    #主机名称
     hostname: localhost
   client:
+    #是否注册到服务器(本身是服务器，所以就无需把自己注册到服务器)
     registerWithEureka: false
+    #是否获取服务器的注册信息(与上同理)
     fetchRegistry: false
     serviceUrl:
+      #自己作为服务器，公布出来的地址。
+      #比如后续某个微服务要把自己注册到 eureka server,就需要把自身注册到下面这个地址中去。
+      #${eureka.instance.hostname}：IP地址（主机名称）      ${server.port}：端口号
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 spring:
